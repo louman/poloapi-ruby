@@ -57,10 +57,10 @@ class MultiDelegator
   end
 end
 
-#begin
+begin
 	optyaml = YAML::load_file(ENV['HOME']+'/.pololending')
-# rescue # Errno::ENOENT
-#end
+rescue Errno::ENOENT
+end
 
 if optyaml != nil then
 	$options.merge!(optyaml)
