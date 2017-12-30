@@ -36,20 +36,20 @@ module Poloapi
     get 'returnOrderBook', currencyPair: currency_pair
   end
 
-  def self.trade_history( currency_pair )
-    get 'returnTradeHistory', currencyPair: currency_pair
-  end
-
   def self.balances
     post 'returnBalances'
+  end
+
+  def self.complete_balances
+    post 'returnCompleteBalances'
   end
 
   def self.open_orders( currency_pair )
     post 'returnOpenOrders', currencyPair: currency_pair
   end
 
-  def self.trade_history( currency_pair )
-    post 'returnTradeHistory', currencyPair: currency_pair
+  def self.trade_history( currency_pair, options = {})
+    post 'returnTradeHistory', { currencyPair: currency_pair }.merge(options)
   end
 
   def self.buy( currency_pair, rate, amount )
